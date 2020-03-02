@@ -24,9 +24,8 @@ print(np.array(list_pixel).shape)
 print(np.moveaxis(np.array(list_pixel), 0, -1).shape)
 fpcs = []
 
-#centroids, variance = fuzzy.cluster.cmeans(np.array(list_pixel), m=3, 3, error=0.005, maxiter=1000,init=None)
 cntr, u, u0, d, jm, p, fpc = fuzzy.cluster.cmeans(np.moveaxis(np.array(list_pixel), 0, -1), 2, 2, error=0.005, maxiter=1000, init=None)
-#centroids, variance = fuzzy.cluster.cmeans(np.array(list_pixel), 2)
+
 code, distance = vq(np.array(list_pixel), cntr)
 fpcs.append(fpc)
 
